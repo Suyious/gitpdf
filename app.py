@@ -55,7 +55,7 @@ def generate():
   buffer = BytesIO()
   buffer.write(pdf.output(dest = "S").encode('latin-1'))
   buffer.seek(0)
-  response = send_file(buffer, as_attachment=True, download_name='output.pdf', mimetype="application/pdf")
+  response = send_file(buffer, as_attachment=True, download_name=f'{git_url.split("/")[-1]}.pdf', mimetype="application/pdf")
 
   os.chdir('..')
   shutil.rmtree(tmp_dir)
