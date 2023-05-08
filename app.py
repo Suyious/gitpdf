@@ -1,23 +1,18 @@
 import os
 import shutil
 from io import BytesIO
-from flask import Flask, request, make_response, send_file
+from flask import Flask, request, make_response, send_file, render_template
 from git import Repo
 from git.exc import GitCommandError
 
 from pdf import PDF
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 app.secret_key = os.environ.get('SECRET_KEY')
 
 @app.route("/")
 def index():
-  return '''
-    <form method="post">
-      <p>Git Repository URL: <input type="text" name="git_url"></p>
-      <p><input type="submit" value="Submit"></p>
-    </form>
-  '''
+  return render_template('index.html')
 
 @app.route("/", methods=["POST"])
 def generate():

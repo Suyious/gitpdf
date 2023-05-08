@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;	
+	box-sizing: border-box;
+}
+
+:root {
+	font-family: 'Inter', serif;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.nav_body {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 50px;
+}
+
+.nav_left {
+	font-weight: 900;
+	letter-spacing: 0.24em;
+	text-transform: uppercase;
+}
+
+.nav_middle {
+	font-weight: 900;
+	padding: 5px;
+	border-bottom: 5px solid #000000;
+}
+
+.nav_right_menu {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.nav_menu_bar {
+	width: 50px;
+	height: 5px;
+	background: #000;
+}
+
+.main_body {
+	display: flex;
+	justify-content: center;
+}
+
+.form_repository_body {
+	width: 725px;
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid #000000;
+	border-radius: 4px;
+	padding: 15px 20px 15px 40px
+}
+
+.form_repository_input,
+.form_repository_submit {
+	outline: none;
+	background: transparent;
+	border: none;
+}
+
+.form_repository_input {
+	flex: 1;
+	font-size: 14px;
+}
+
+.form_repository_submit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.footer_body {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px 50px;
+}
