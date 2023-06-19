@@ -18,10 +18,21 @@
   </nav>
   <main class="main_body">
     <form class="form_repository_body" method="post">
-      <input class="form_repository_input" type="text" name="git_url" placeholder="Git Repository Url">
-      <button class="form_repository_submit" type="submit">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24px" width="24px" viewBox="0 0 24 24"><title>chevron-right</title><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </button>
+      <div class="form_repository_wrapper">
+        <input class="form_repository_input" type="text" name="git_url" placeholder="Git Repository Url">
+        <button class="form_repository_submit" type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24px" width="24px" viewBox="0 0 24 24"><title>chevron-right</title><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+        </button>
+      </div>
+      <div class="form_repository_ignore_wrapper">
+        <details class="form_repository_ignore_collapse">
+          <summary>Add Files to Ignore: </summary>
+          <label class="form_repository_ignore_input_wrapper">
+            <div class="form_repository_ignore_label">Ignored Files: (comma separated pathnames)</div>
+            <textarea class="form_repository_ignore_input" name="gitpdf_ignore">Default</textarea>
+          </label>
+        </details>
+      </div>
     </form>
   </main>
   <footer class="footer_body">

@@ -17,8 +17,12 @@ def index():
 @app.route("/", methods=["POST"])
 def generate():
   git_url = request.form.get('git_url')
+  gitpdf_ignore = request.form.get('gitpdf_ignore')
   if not git_url:
     return "<p>Please provide Github URL</p>"
+  if gitpdf_ignore:
+    gitpdf_ignore = gitpdf_ignore.split(",")
+    print("Will Ignore these files: ", gitpdf_ignore)
 
   tmp_dir = "tmp_repo"
   if os.path.exists(tmp_dir):
@@ -38,6 +42,9 @@ def generate():
   for dirpath, dirname, filenames in os.walk(os.curdir):
     for filename in filenames:
       filepath = os.path.join(dirpath, filename)
+      if filepath in gitpdf_ignore:
+        print("ignoring", filename)
+        continue
       pdf.set_filename(filepath)
       with open(filepath, "r") as f:
         pdf.add_page()
