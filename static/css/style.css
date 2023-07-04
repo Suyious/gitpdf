@@ -89,16 +89,39 @@ body {
 	font-size: 0.9em;
 }
 
-.form_repository_ignore_input_wrapper {
+.form_repository_collapsible {
 	position: absolute;
 	top: 25px;
 	left: 0;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	gap: 1em;
+}
+
+.form_repository_ignore_input_wrapper {
+	display: flex;
+	flex-direction: column;
 	gap: 0.5em;
 }
 
+.form_repository_ignore_select {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.form_repository_footer_text,
+.form_repository_header_text {
+	display: flex;
+	gap: 1em;
+}
+
+.form_repository_pageoffset_label,
+.form_repository_footer_left_label,
+.form_repository_footer_right_label,
+.form_repository_header_left_label,
+.form_repository_header_right_label,
 .form_repository_ignore_label {
 	font-size: 0.8em;
 }

@@ -18,8 +18,14 @@ def index():
 def generate():
   git_url = request.form.get('git_url')
   gitpdf_ignore = request.form.get('gitpdf_ignore')
+  gitpdf_ignore_type = request.form.get('gitpdf_ignore_type')
+  gitpdf_pageoffset = request.form.get('gitpdf_pageoffset')
+  gitpdf_footer_left = request.form.get('gitpdf_footer_left')
+  gitpdf_footer_right = request.form.get('gitpdf_footer_right')
+
   if not git_url:
     return "<p>Please provide Github URL</p>"
+
   if gitpdf_ignore:
     gitpdf_ignore = gitpdf_ignore.split(",")
     print("Will Ignore these files: ", gitpdf_ignore)
@@ -39,10 +45,15 @@ def generate():
   shutil.rmtree(".git")
 
   pdf = PDF()
+  pdf.set_pageoffset(gitpdf_pageoffset)
+  pdf.set_footer_text(left = gitpdf_footer_left, right = gitpdf_footer_right)
   for dirpath, dirname, filenames in os.walk(os.curdir):
     for filename in filenames:
       filepath = os.path.join(dirpath, filename)
-      if filepath in gitpdf_ignore:
+      if gitpdf_ignore_type == 'pathname' and filepath in gitpdf_ignore:
+        print("ignoring", filename)
+        continue
+      if gitpdf_ignore_type == 'filename' and filename in gitpdf_ignore:
         print("ignoring", filename)
         continue
       pdf.set_filename(filepath)
